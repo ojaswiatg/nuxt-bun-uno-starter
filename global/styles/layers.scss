@@ -1,0 +1,3 @@
+/* Order the layers that are created by component libraries in this file */
+/* This needs to be loaded before other CSS files or else the re-ordering won't work */
+@layer important-override-layer, sc-root-typography, vuetify, unocss;

@@ -1,0 +1,38 @@
+{
+    "npm.packageManager": "bun",
+    "debug.onTaskErrors": "debugAnyway",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.emptySelectionClipboard": true,
+    "editor.linkedEditing": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.find.addExtraSpaceOnTop": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.stickyScroll.enabled": true,
+    "editor.hover.sticky": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.tree.expandMode": "singleClick",
+    "workbench.tree.indent": 10,
+    "workbench.list.smoothScrolling": true,
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "html",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "gql",
+        "graphql"
+    ],
+
+    "files.associations": {
+        "*.scss": "postcss"
+    },
+    "workbench.tree.renderIndentGuides": "none",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+}
