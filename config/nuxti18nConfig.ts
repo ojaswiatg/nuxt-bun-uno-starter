@@ -17,7 +17,7 @@ export const i18n: NuxtConfig["i18n"] = {
     ],
     defaultLocale: "en",
     lazy: false,
-    langDir: "../locales",
+    langDir: "locales",
     strategy: "no_prefix",
     detectBrowserLanguage: {
         useCookie: true,

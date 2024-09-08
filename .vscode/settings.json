@@ -1,4 +1,5 @@
 {
+    // Ensure VSCode uses bun instead of npm
     "npm.packageManager": "bun",
     "debug.onTaskErrors": "debugAnyway",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -6,6 +7,7 @@
     "editor.linkedEditing": true,
     "editor.guides.bracketPairs": "active",
     "editor.cursorSmoothCaretAnimation": "on",
+    // "editor.renderWhitespace": "boundary",
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
     "editor.find.addExtraSpaceOnTop": false,
     "editor.inlineSuggest.enabled": true,
@@ -17,9 +19,75 @@
     "workbench.tree.expandMode": "singleClick",
     "workbench.tree.indent": 10,
     "workbench.list.smoothScrolling": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.associations": {
+        "*.css": "postcss"
+    },
+    "iconify.annotations": true,
+    "iconify.inplace": true,
+    "svg.preview.mode": "svg",
+    "i18n-ally.autoDetection": false,
+    "i18n-ally.ignoredLocales": [],
+    "i18n-ally.keysInUse": ["time_ago_options.*", "visibility.*"],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.localesPaths": ["locales"],
+    "i18n-ally.preferredDelimiter": "_",
+    "i18n-ally.sortKeys": true,
+    "i18n-ally.sourceLanguage": "en-US",
+    "i18n-ally.displayLanguage": "en-US",
+    "vue.autoInsert.dotValue": true,
+    "vue.inlayHints.inlineHandlerLeading": true,
+    "vue.inlayHints.missingProps": true,
+    "vue.inlayHints.optionsWrapper": true,
+
+    // ESLint config: https://github.com/antfu/eslint-config
+    // Disable prettier and default formatter, use eslint instead
+    "prettier.enable": false,
+    "prettier.printWidth": 200,
+    "prettier.quoteProps": "consistent",
+    "prettier.bracketSameLine": true,
+
+    "editor.formatOnSave": false,
+
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "never",
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "never"
+    },
+
+    "eslint.quiet": true,
+
+    // Silent the stylistic rules in you IDE, but still auto fix them
+    "eslint.rules.customizations": [
+        { "rule": "style/*", "severity": "off" },
+        { "rule": "format/*", "severity": "off" },
+        { "rule": "*-indent", "severity": "off" },
+        { "rule": "*-spacing", "severity": "off" },
+        { "rule": "*-spaces", "severity": "off" },
+        { "rule": "*-order", "severity": "off" },
+        { "rule": "*-dangle", "severity": "off" },
+        { "rule": "*-newline", "severity": "off" },
+        { "rule": "*quotes", "severity": "off" },
+        { "rule": "*semi", "severity": "off" }
+    ],
+
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+
     "eslint.validate": [
         "javascript",
         "typescript",
+        "vue",
         "html",
         "markdown",
         "json",
@@ -29,10 +97,91 @@
         "graphql"
     ],
 
-    "files.associations": {
-        "*.scss": "postcss"
+    "git.autofetch": true,
+    "git.untrackedChanges": "separate",
+
+    "scm.diffDecorationsGutterWidth": 2,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": false,
+    "workbench.editor.limit.value": 20,
+    "workbench.editor.limit.excludeDirty": true,
+    "search.exclude": {
+        "**/*.snap": true,
+        "**/.git": true,
+        "**/.github": true,
+        "**/.nuxt": true,
+        "**/.output": true,
+        "**/.pnpm": true,
+        "**/.vscode": true,
+        "**/.yarn": true,
+        "**/bower_components": true,
+        "**/dist/**": true,
+        "**/logs": true,
+        "**/node_modules": true,
+        "**/out/**": true,
+        "**/package-lock.json": true,
+        "**/pnpm-lock.yaml": true,
+        "**/temp": true,
+        "**/yarn.lock": true,
+        "**/CHANGELOG*": true,
+        "**/LICENSE*": true
     },
-    "workbench.tree.renderIndentGuides": "none",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
+
+    "window.title": "${rootName}", // this make tabs more readable
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": false,
+    "errorLens.enabledDiagnosticLevels": ["warning", "error"],
+    "errorLens.excludeBySource": ["cSpell", "eslint"],
+
+    "css.lint.hexColorLength": "ignore",
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.menus": {
+        "editor": {
+            "blame": true,
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "editorGroup": {
+            "blame": false,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scm": {
+            "authors": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+        },
+        "scmGroupInline": {
+            "stash": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true,
+            "stash": true
+        }
+    }
 }

@@ -11,7 +11,15 @@ const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
     alias: {
-        "#sc-root": resolve("./"),
+        "@/*": "./app/*",
+        "@actions/*": "./app/actions/*",
+        "@components/*": "./app/components/*",
+        "@constants/*": "./app/constants/*",
+        "@hooks/*": "./app/hooks/*",
+        "@services/*": "./app/services/*",
+        "@stores/*": "./app/stores/*",
+        "@types/*": "./app/types/*",
+        "@utils/*": "./app/utils/*",
     },
 
     app: {
@@ -22,14 +30,14 @@ export default defineNuxtConfig({
             meta: [
                 {
                     "http-equiv": "Cache-Control",
-                    "content": "private",
+                    // content: "private",
                 },
             ],
             noscript: [
                 // <noscript>Javascript is required</noscript>
                 {
                     children:
-            "We're sorry but our client doesn't work properly without JavaScript enabled. Please enable it to continue",
+                        "We're sorry but our client doesn't work properly without JavaScript enabled. Please enable it to continue",
                 },
             ],
         },
@@ -49,25 +57,21 @@ export default defineNuxtConfig({
 
     // CSS / SASS / SCSS files import. Ordering is important.
     css: [
-    // Importing Layers configuration - Needs to be loaded first
-        resolve("./global/styles/layers.scss"),
-        // Importing Fonts
-        resolve("./global/styles/typography.scss"),
-        // Importing Transition and animation related styles
-        resolve("./global/styles/animations.scss"),
-        // Importing Vuetify Styles with overridden styles
-        resolve("./global/styles/overrides.scss"),
-        // Importing global styles defined in sc-root
+        // Importing Layers configuration - Needs to be loaded first
         resolve("./global/styles/reset.scss"),
+        resolve("./global/styles/layers.scss"),
+        resolve("./global/styles/animations.scss"),
+        resolve("./global/styles/typography.scss"),
+        resolve("./global/styles/overrides.scss"),
     ],
 
     devServer: {
-    // Disabling HTTPS
-    // https: {
-    //     key: resolve("../../certs/admin_key.pem"),
-    //     cert: resolve("../../certs/admin_cert.pem"),
-    //     // ca: fileURLToPath(new URL("../../certs/admin_ca.pem", import.meta.url)),
-    // },
+        // Disabling HTTPS
+        // https: {
+        //     key: resolve("../../certs/admin_key.pem"),
+        //     cert: resolve("../../certs/admin_cert.pem"),
+        //     // ca: fileURLToPath(new URL("../../certs/admin_ca.pem", import.meta.url)),
+        // },
         port: 3000,
     },
 
@@ -76,6 +80,7 @@ export default defineNuxtConfig({
     experimental: {
         typedPages: true,
         asyncContext: true,
+        componentIslands: true,
     },
 
     future: {
@@ -94,15 +99,15 @@ export default defineNuxtConfig({
     logLevel: "silent",
 
     modules: [
-    // (_options: ModuleOptions, nuxt: Nuxt) => {
-    //     nuxt.hooks.hook("vite:extendConfig", (config: any) =>
-    //         config.plugins.push(
-    //             vuetify(),
-    //             vuetifySass({
-    //                 configFile: resolve("./app/assets/styles/vuetify/settings.scss"),
-    //             }),
-    //         ));
-    // },
+        // (_options: ModuleOptions, nuxt: Nuxt) => {
+        //     nuxt.hooks.hook("vite:extendConfig", (config: any) =>
+        //         config.plugins.push(
+        //             vuetify(),
+        //             vuetifySass({
+        //                 configFile: resolve("./app/assets/styles/vuetify/settings.scss"),
+        //             }),
+        //         ));
+        // },
 
         "@pinia/nuxt",
 
@@ -153,10 +158,10 @@ export default defineNuxtConfig({
             {
                 autoImports: true,
                 componentNames: {
-                    Form: "VeeForm",
-                    Field: "VeeField",
-                    FieldArray: "VeeFieldArray",
-                    ErrorMessage: "VeeErrorMessage",
+                    Form: "vee-form",
+                    Field: "vee-field",
+                    FieldArray: "vee-field-array",
+                    ErrorMessage: "vee-error-message",
                 },
             },
         ],
@@ -195,25 +200,25 @@ export default defineNuxtConfig({
         build: {
             target: "esnext",
         },
-        resolve: {
-            alias: {
-                "shared-utils": resolve("../shared-utils/index.ts"),
-            },
-        },
-    // server: {
-    //     hmr: {
-    //         protocol: "ws",
-    //         clientPort: 3000,
-    //     },
-    // },
-    // vue: {
-    //     template: {
-    //         transformAssetUrls,
-    //         compilerOptions: {
-    //             isCustomElement: (tag) => tag.startsWith("i-"),
-    //         },
-    //     },
-    // },
+        // resolve: {
+        //     alias: {
+        //         "shared-utils": resolve("../shared-utils/index.ts"),
+        //     },
+        // },
+        // server: {
+        //     hmr: {
+        //         protocol: "ws",
+        //         clientPort: 3000,
+        //     },
+        // },
+        // vue: {
+        //     template: {
+        //         transformAssetUrls,
+        //         compilerOptions: {
+        //             isCustomElement: (tag) => tag.startsWith("i-"),
+        //         },
+        //     },
+        // },
     },
 
     compatibilityDate: "2024-09-08",

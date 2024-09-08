@@ -1,13 +1,8 @@
 <template>
-    <div>
-        <div class="text-red-400">
-            {{ t("UnoCSSIntegrated") }}
-        </div>
-        <NuxtRouteAnnouncer />
-        <NuxtWelcome />
-    </div>
-</template>
+    <NuxtLoadingIndicator
+        :duration="60000"
+        class="global-loader"
+    />
 
-<script setup lang="ts">
-const { t } = useI18n();
-</script>
+    <NuxtPage :key="reloadKey" />
+</template>
